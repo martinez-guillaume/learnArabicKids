@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+
+
+
+// void main() {
+//   runApp(const MyApp());
+// }
 
 void main() {
+ WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
+}
+
+// Si vous utilisez un splash screen, supprimez-le lorsque l'initialisation est terminée
+Future<void> removeSplashScreen() async {
+  await Future.delayed(const Duration(seconds: 3)); // Simulation d'une initialisation
+  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {
