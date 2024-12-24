@@ -1,0 +1,7 @@
+flutter_native_splash:
+  color: "#E6E6FA" # Couleur d'arrière-plan
+ # image: assets/splash_image.png # Chemin vers votre image
+  android: true # Activer pour Android
+  ios: true # Activer pour iOS
+  web: true # Optionnel, pour les applications web
+  fullscreen: true # Pour un splash screen plein écran
