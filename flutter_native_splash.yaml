@@ -1,7 +1,16 @@
 flutter_native_splash:
-  color: "#081081" # Couleur d'arrière-plan
+  color: "#ADD8E6" # Couleur d'arrière-plan
   image: assets/images/logoAlif.png # Chemin vers image
   android: true # Activer pour Android
   ios: true # Activer pour iOS
   web: true # Optionnel, pour les applications web
   fullscreen: true # Pour un splash screen plein écran
+
+  color_dark: "#ADD8E6"
+  image_dark: assets/images/logoAlif.png # Chemin vers image pour le mode sombre
+  
+
+  android_12:
+    color: "#ADD8E6" # Couleur d'arrière-plan
+    image: assets/images/logoAlif.png # Chemin vers image
+
