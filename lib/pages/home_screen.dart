@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'login.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -76,8 +77,11 @@ class HomeScreen extends StatelessWidget {
                       width: double.infinity, // Prendre toute la largeur disponible
                       child: ElevatedButton(
                         onPressed: () {
-                          // Action pour le bouton "J'ai déjà un compte"
-                          print("J'ai déjà un compte");
+                           // Action pour le bouton "J'ai déjà un compte"
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => LoginPage()), // Naviguer vers la page de connexion
+                          );
                         },
                         child: Text("J'ai déjà un compte"),
                         style: ElevatedButton.styleFrom(
