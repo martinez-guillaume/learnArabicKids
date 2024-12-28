@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-
-
+import 'package:learnarabickids/pages/pages.dart'; // Assurez-vous que le chemin est correct
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -9,45 +8,17 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
-
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState(){
-    super.initState();
-    initialization();
-  }
-  
-  void initialization() async {
-    await Future.delayed(const Duration(seconds:3));
-    FlutterNativeSplash.remove();
-  }
-  
-  // This widget is the root of your application.
-  @override
   Widget build(BuildContext context) {
+    FlutterNativeSplash.remove(); // Supprime le splash screen natif dès que l'application est prête
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Color.fromRGBO(	173, 216, 230, 50),
-        body: Center(
-          child:Text('Bienvenue sur Learn Arabic Kids !',
-          style: TextStyle(
-            fontSize: 24, 
-            fontWeight: FontWeight.bold),
-          )
-        ),
-      )
+      home: HomeScreen(),
     );
   }
 }
-
-
 
 
