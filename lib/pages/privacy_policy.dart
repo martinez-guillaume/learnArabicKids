@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class PrivacyPolicyPage extends StatelessWidget {
   @override
@@ -7,10 +6,6 @@ class PrivacyPolicyPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFF8ACDEA), // Couleur de fond
       appBar: AppBar(
-        title: Text(
-          'Politique de confidentialité',
-          style: GoogleFonts.robotoCondensed(color: Color.fromARGB(255, 0, 0, 0)), // Couleur du texte de l'AppBar
-        ),
         backgroundColor: Color(0xFF8ACDEA), // Couleur de fond de l'AppBar
       ),
       body: Padding(
@@ -146,19 +141,11 @@ class PrivacyPolicyPage extends StatelessWidget {
               'Les Utilisateurs Enfants ne peuvent pas fournir à Learn Arabic Kids leur vrai nom, photo de profil, emplacement, informations de contact ou autres informations personnelles.\n'
               'Les Utilisateurs Enfants ne peuvent pas lier leur compte Learn Arabic Kids à leurs informations de contact ou à leurs comptes sur d\'autres services en ligne.\n'
               'Les Profils des Utilisateurs Enfants ne contiennent aucune information personnelle qui pourrait être utilisée pour identifier ou contacter publiquement l’enfant, mais seulement le nom d\'utilisateur de l’Utilisateur Enfant, un avatar créé à partir d’options prédéfinies, une liste d’amis sur Learn Arabic Kids, et des informations sur leurs progrès d’apprentissage sur Learn Arabic Kids.\n'
-
-
-
-
-
-
               'Les Utilisateurs Enfants ne verront que des avatars au lieu de photos de profil dans leur classement.\n'
               'Les parents peuvent supprimer les Restrictions d’Âge de leur enfant. De plus, les parents peuvent signaler tout abus à guillaume1313@laposte.net.\n\n'
-
               'En ce qui concerne la Loi sur la Protection de la Vie Privée des Enfants en Ligne, Learn Arabic Kids collecte des informations personnelles auprès des enfants de moins de 13 ans uniquement dans le but d’effectuer des opérations internes du Service. Si nous découvrons que nous avons collecté sans le savoir des informations personnelles supplémentaires auprès de ces enfants, nous les supprimerons. Si vous pensez que c’est le cas, veuillez nous contacter à guillaume1313@laposte.net.\n\n'
               'Learn Arabic Kids ABC\n'
               'Learn Arabic Kids ABC est conçu pour être configuré par les parents et vous demandera de fournir l’âge de votre enfant. Ces informations sont conservées de manière anonyme à des fins de recherche et ne sont pas liées à vos informations personnelles ou à celles de votre enfant de quelque manière que ce soit. Learn Arabic Kids ABC ne collecte aucune information personnelle auprès des enfants.\n\n'
-
               'En tant que parent, vous avez également la possibilité de fournir votre adresse e-mail afin que Learn Arabic Kids puisse vous envoyer des informations sur les mises à jour de produits et vous demander de participer à des recherches sur les produits. Si vous fournissez votre adresse e-mail, vous pouvez vous désinscrire à tout moment en envoyant un e-mail à literacy-feedback@learnarabickids.com ou en cliquant sur le lien de désinscription dans tout e-mail de Learn Arabic Kids ABC. Vos données Learn Arabic Kids ABC sont sauvegardées dans iCloud d’Apple, ce qui vous permet de synchroniser et de restaurer les données sur un autre appareil Apple.\n\n'
               'Ne pas Suivre\n'
               'Le Service n’est pas conçu pour répondre aux signaux “ne pas suivre” envoyés par certains navigateurs.\n\n'

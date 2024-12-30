@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TermsOfServicePage extends StatelessWidget {
   @override
@@ -7,10 +6,6 @@ class TermsOfServicePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFF8ACDEA), // Couleur de fond
       appBar: AppBar(
-        title: Text(
-          'Conditions d\'utilisation',
-          style: GoogleFonts.robotoCondensed(color: Color.fromARGB(255, 0, 0, 0)), // Couleur du texte de l'AppBar
-        ),
         backgroundColor: Color(0xFF8ACDEA), // Couleur de fond de l'AppBar
       ),
       body: Padding(
@@ -36,6 +31,7 @@ class TermsOfServicePage extends StatelessWidget {
           children: [
             Text(
               'Conditions d\'utilisation',
+              
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16),

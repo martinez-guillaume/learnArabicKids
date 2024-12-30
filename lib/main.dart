@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:learnarabickids/pages/pages.dart'; // Assurez-vous que le chemin est correct
+import 'package:learnarabickids/pages/pages.dart'; 
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FlutterNativeSplash.remove(); // Supprime le splash screen natif dès que l'application est prête
+    FlutterNativeSplash.remove();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
