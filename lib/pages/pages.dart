@@ -4,3 +4,5 @@ export 'register.dart';
 export 'presentation_alif.dart';
 export 'privacy_policy.dart';
 export 'terms_of_service.dart';
+export 'learning_selection.dart';
+export 'lesson_selection.dart';
