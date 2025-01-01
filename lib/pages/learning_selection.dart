@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'lesson_selection.dart';
+import 'package:flutter_chat_bubble/chat_bubble.dart';
+import 'package:learnarabickids/widgets/typewriter_text.dart';
 
 class LearningSelectionPage extends StatefulWidget {
   @override
@@ -11,6 +13,12 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
   bool isWritingSelected = false;
   bool isReadingSelected = false;
   bool isVocabularySelected = false;
+  bool isDictationSelected = false; 
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   void updateContinueButtonState() {
     setState(() {});
@@ -26,38 +34,57 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
       body: LayoutBuilder(
         builder: (context, constraints) {
           // Calcul de la largeur des boutons
-          double buttonWidth = constraints.maxWidth > 800 ? 500 : constraints.maxWidth * 0.9;
+          double buttonWidth =
+              constraints.maxWidth > 800 ? 500 : constraints.maxWidth * 0.9;
 
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Image en haut à gauche
+                // Image et bulle côte à côte
                 Row(
+                  crossAxisAlignment:
+                      CrossAxisAlignment.start, // Alignement en haut
                   children: [
+                    // Image
                     Image.asset(
-                      'assets/images/launch5.png',
-                      height: 200,
+                      'assets/images/monsieur_alif_with_bubble.png',
+                      height: 180,
                       fit: BoxFit.cover,
                     ),
+                    SizedBox(width: 10), // Espacement entre l'image et la bulle
+                    // Bulle
                     Expanded(
-                      child: Text(
-                        'Que veux-tu apprendre ?',
-                        style: GoogleFonts.robotoCondensed(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFFE9717D),
+                      child: ChatBubble(
+                        clipper: ChatBubbleClipper2(
+                            type: BubbleType
+                                .receiverBubble), // Type de bulle (flèche à gauche)
+                        alignment: Alignment.topLeft, // Position de la bulle
+                        margin: EdgeInsets.only(top: 15),
+                        backGroundColor: Colors.white,
+                        child: Container(
+                          constraints: BoxConstraints(
+                            maxWidth: MediaQuery.of(context).size.width *
+                                0.7, // Limite de largeur de la bulle
+                          ),
+                          child: TypewriterText(
+                            text:
+                                "Hey !!! Que souhaites-tu étudier aujourd'hui ?",
+                          ),
                         ),
                       ),
                     ),
                   ],
                 ),
 
-                // Boutons Lecture, Écriture, et Vocabulaire
+                SizedBox(height: 70),
+
+                // Boutons Lecture, Écriture, Vocabulaire et Dictée
                 Center(
                   child: Column(
                     children: [
+                      // Bouton Lecture
                       Container(
                         width: buttonWidth,
                         child: ElevatedButton(
@@ -65,23 +92,31 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
                             isReadingSelected = true;
                             isWritingSelected = false;
                             isVocabularySelected = false;
+                            isDictationSelected = false;
                             updateContinueButtonState();
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: isReadingSelected ? Color(0xFFFAFFD8) : Colors.white,
+                            backgroundColor: isReadingSelected
+                                ? Color(0xFFFAFFD8)
+                                : Colors.white,
                             padding: EdgeInsets.symmetric(vertical: 16),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4), // Shape du bouton moins arrondi
+                              borderRadius: BorderRadius.circular(
+                                  4), // Shape du bouton moins arrondi
                             ),
                           ),
                           child: Text(
                             'Lecture',
-                            style: GoogleFonts.robotoCondensed(color: Colors.black),
+                            style: GoogleFonts.robotoCondensed(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),
                           ),
                         ),
                       ),
-                      SizedBox(height: 16), // Espacement entre les boutons
+                      SizedBox(height: 16),
 
+                      // Bouton Écriture
                       Container(
                         width: buttonWidth,
                         child: ElevatedButton(
@@ -89,22 +124,28 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
                             isWritingSelected = true;
                             isReadingSelected = false;
                             isVocabularySelected = false;
+                            isDictationSelected = false;
                             updateContinueButtonState();
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: isWritingSelected ? Color(0xFFFAFFD8) : Colors.white,
+                            backgroundColor: isWritingSelected
+                                ? Color(0xFFFAFFD8)
+                                : Colors.white,
                             padding: EdgeInsets.symmetric(vertical: 16),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4), // //Shape du bouton moins arrondi
+                              borderRadius: BorderRadius.circular(4),
                             ),
                           ),
                           child: Text(
                             'Écriture',
-                            style: GoogleFonts.robotoCondensed(color: Colors.black),
+                            style: GoogleFonts.robotoCondensed(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),
                           ),
                         ),
                       ),
-                      SizedBox(height: 16), // Espacement entre les boutons
+                      SizedBox(height: 16),
 
                       // Bouton Vocabulaire
                       Container(
@@ -114,26 +155,62 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
                             isVocabularySelected = true;
                             isReadingSelected = false;
                             isWritingSelected = false;
+                            isDictationSelected = false;
                             updateContinueButtonState();
                           },
                           style: ElevatedButton.styleFrom(
-                            //backgroundColor: isVocabularySelected ? const Color.fromARGB(255, 156, 226, 158) : Colors.white,
-                            backgroundColor: isVocabularySelected ? Color(0xFFFAFFD8) : Colors.white,
+                            backgroundColor: isVocabularySelected
+                                ? Color(0xFFFAFFD8)
+                                : Colors.white,
                             padding: EdgeInsets.symmetric(vertical: 16),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4), // Shape du bouton moins arrondi
+                              borderRadius: BorderRadius.circular(4),
                             ),
                           ),
                           child: Text(
                             'Vocabulaire',
-                            style: GoogleFonts.robotoCondensed(color: Colors.black),
+                            style: GoogleFonts.robotoCondensed(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 16),
+
+                      // Bouton Dictée
+                      Container(
+                        width: buttonWidth,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            isDictationSelected = true;
+                            isReadingSelected = false;
+                            isWritingSelected = false;
+                            isVocabularySelected = false;
+                            updateContinueButtonState();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: isDictationSelected
+                                ? Color(0xFFFAFFD8)
+                                : Colors.white,
+                            padding: EdgeInsets.symmetric(vertical: 16),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                          ),
+                          child: Text(
+                            'Dictée',
+                            style: GoogleFonts.robotoCondensed(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),
                           ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 40), // Espacement
+                SizedBox(height: 40),
 
                 Spacer(), // Pousse le bouton "Continuer" vers le bas
 
@@ -142,19 +219,26 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
                   child: Container(
                     width: buttonWidth,
                     child: ElevatedButton(
-                      onPressed: (isWritingSelected || isReadingSelected || isVocabularySelected)
+                      onPressed: (isWritingSelected ||
+                              isReadingSelected ||
+                              isVocabularySelected ||
+                              isDictationSelected)
                           ? () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LessonSelectionPage()),
+                                    builder: (context) =>
+                                        LessonSelectionPage()),
                               );
                             }
                           : null, // Désactive le bouton si aucun choix n'est fait
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: (isWritingSelected || isReadingSelected || isVocabularySelected)
+                        backgroundColor: (isWritingSelected ||
+                                isReadingSelected ||
+                                isVocabularySelected ||
+                                isDictationSelected)
                             ? Color(0xFFE9717D)
-                            : Colors.grey, // Couleur du bouton
+                            : Colors.grey,
                         padding: EdgeInsets.symmetric(vertical: 14),
                         textStyle: TextStyle(fontSize: 20),
                       ),
@@ -165,7 +249,7 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10), 
+                SizedBox(height: 10),
               ],
             ),
           );

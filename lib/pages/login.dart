@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/gestures.dart';
-import 'terms_of_service.dart'; 
-import 'privacy_policy.dart'; 
+import 'terms_of_service.dart';
+import 'privacy_policy.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -30,14 +30,15 @@ class _LoginPageState extends State<LoginPage> {
       body: LayoutBuilder(
         builder: (context, constraints) {
           // Calcul de la largeur des boutons et des champs
-          double elementWidth = constraints.maxWidth > 800 ? 500 : constraints.maxWidth * 0.9;
+          double elementWidth =
+              constraints.maxWidth > 800 ? 500 : constraints.maxWidth * 0.9;
 
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 130.0), 
+                SizedBox(height: 130.0),
                 // Champ Email
                 Center(
                   child: Container(
@@ -46,12 +47,15 @@ class _LoginPageState extends State<LoginPage> {
                       controller: _emailController,
                       decoration: InputDecoration(
                         labelText: 'Email',
-                        labelStyle: GoogleFonts.robotoCondensed(color: Color(0xFFE9717D)), // Couleur du label
+                        labelStyle: GoogleFonts.robotoCondensed(
+                            color: Color(0xFFE9717D)), // Couleur du label
                         filled: true, // Remplissage activé
                         fillColor: Colors.white, // Couleur de remplissage
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8), // Arrondi léger
-                          borderSide: BorderSide(color: Colors.black), // Couleur de la bordure
+                          borderRadius:
+                              BorderRadius.circular(8), // Arrondi léger
+                          borderSide: BorderSide(
+                              color: Colors.black), // Couleur de la bordure
                         ),
                       ),
                     ),
@@ -67,16 +71,21 @@ class _LoginPageState extends State<LoginPage> {
                       obscureText: _obscureText,
                       decoration: InputDecoration(
                         labelText: 'Mot de passe',
-                        labelStyle: GoogleFonts.robotoCondensed(color: Color(0xFFE9717D)), // Couleur du label
+                        labelStyle: GoogleFonts.robotoCondensed(
+                            color: Color(0xFFE9717D)), // Couleur du label
                         filled: true, // Remplissage activé
                         fillColor: Colors.white, // Couleur de remplissage
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8), // Arrondi léger
-                          borderSide: BorderSide(color: Colors.black), // Couleur de la bordure
+                          borderRadius:
+                              BorderRadius.circular(8), // Arrondi léger
+                          borderSide: BorderSide(
+                              color: Colors.black), // Couleur de la bordure
                         ),
                         suffixIcon: IconButton(
                           icon: Icon(
-                            _obscureText ? Icons.visibility : Icons.visibility_off,
+                            _obscureText
+                                ? Icons.visibility
+                                : Icons.visibility_off,
                             color: Color(0xFFE9717D), // Couleur de l'icône
                           ),
                           onPressed: _togglePasswordVisibility,
@@ -94,13 +103,15 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: () {
                         // Logique de connexion ici
                       },
-                      child: Text('SE CONNECTER', style: GoogleFonts.robotoCondensed(color: Colors.white)), 
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFFE9717D),
                         foregroundColor: Colors.white, // Couleur du texte
-                        padding: EdgeInsets.symmetric(vertical: 14), 
+                        padding: EdgeInsets.symmetric(vertical: 14),
                         textStyle: TextStyle(fontSize: 20),
                       ),
+                      child: Text('SE CONNECTER',
+                          style:
+                              GoogleFonts.robotoCondensed(color: Colors.white)),
                     ),
                   ),
                 ),
@@ -109,7 +120,8 @@ class _LoginPageState extends State<LoginPage> {
                 Text(
                   'En te connectant à Learn Arabic Kids, tu acceptes nos ',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.robotoCondensed(color: Color(0xFFE9717D)), // Couleur du texte
+                  style: GoogleFonts.robotoCondensed(
+                      color: Color(0xFFE9717D)), // Couleur du texte
                 ),
                 RichText(
                   text: TextSpan(
@@ -118,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                         text: 'Conditions d\'utilisation',
                         style: GoogleFonts.robotoCondensed(
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFFE9717D), 
+                          color: Color(0xFFE9717D),
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
@@ -130,7 +142,9 @@ class _LoginPageState extends State<LoginPage> {
                             );
                           },
                       ),
-                      TextSpan(text: ' et ', style: TextStyle(color: Color(0xFFE9717D))),
+                      TextSpan(
+                          text: ' et ',
+                          style: TextStyle(color: Color(0xFFE9717D))),
                       TextSpan(
                         text: 'Politique de confidentialité',
                         style: GoogleFonts.robotoCondensed(
@@ -147,7 +161,9 @@ class _LoginPageState extends State<LoginPage> {
                             );
                           },
                       ),
-                      TextSpan(text: '.', style: TextStyle(color: Color(0xFFE9717D))), 
+                      TextSpan(
+                          text: '.',
+                          style: TextStyle(color: Color(0xFFE9717D))),
                     ],
                   ),
                 ),
