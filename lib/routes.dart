@@ -11,5 +11,5 @@ final routes = <String, WidgetBuilder>{
   '/presentation': (context) => PresentationAlifPage(),
   '/learningselection': (context) => LearningSelectionPage(),
   '/lessonselection': (context) => LessonSelectionPage(),
-  
+  '/quiz': (context) => QuizPage(),
 };
