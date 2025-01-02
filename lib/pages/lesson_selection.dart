@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:learnarabickids/widgets/typewriter_text.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'quiz.dart';
 
 class LessonSelectionPage extends StatefulWidget {
   @override
@@ -48,8 +50,7 @@ class _LessonSelectionPageState extends State<LessonSelectionPage> {
                     Expanded(
                       child: ChatBubble(
                         clipper: ChatBubbleClipper2(
-                            type: BubbleType
-                                .receiverBubble), // Type de bulle (flèche à gauche)
+                            type: BubbleType.receiverBubble), // Type de bulle (flèche à gauche)
                         alignment: Alignment.topLeft, // Position de la bulle
                         margin: EdgeInsets.only(top: 15),
                         backGroundColor: Colors.white,
@@ -73,43 +74,52 @@ class _LessonSelectionPageState extends State<LessonSelectionPage> {
                 Expanded(
                   child: SingleChildScrollView(
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(
-                          4), // Ajout d'arrondis aux angles
+                      borderRadius: BorderRadius.circular(4), // Ajout d'arrondis aux angles
                       child: Container(
-                        //color: Color.fromARGB(255, 199, 235, 252), // Couleur de fond pour la zone défilante
                         child: Center(
                           child: Column(
                             children: [
-                              SizedBox(
-                                  height: 5), // Espace avant le premier bouton
+                              SizedBox(height: 5), // Espace avant le premier bouton
                               for (int i = 1; i <= 10; i++) ...[
                                 Container(
                                   width: buttonWidth,
                                   margin: EdgeInsets.only(
-                                      bottom:
-                                          16), // Espacement entre les boutons
+                                      bottom: 16), // Espacement entre les boutons
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      selectedLesson =
-                                          i; // Met à jour la leçon sélectionnée
+                                      selectedLesson = i; // Met à jour la leçon sélectionnée
                                       updateContinueButtonState();
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: selectedLesson == i
                                           ? Color(0xFFFAFFD8)
                                           : Colors.white,
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 16),
+                                      padding: EdgeInsets.symmetric(vertical: 16),
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            4), // Coins moins arrondis pour les boutons
+                                        borderRadius: BorderRadius.circular(4), // Coins arrondis pour les boutons
                                       ),
                                     ),
-                                    child: Text(
-                                      'Leçon $i',
-                                      style: GoogleFonts.robotoCondensed(
-                                        color: Colors.black,
-                                        fontSize: 16,
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 16.0), 
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          // Texte du bouton
+                                          Text(
+                                            'Leçon $i ( ث , ت , ب , أ )',
+                                            style: GoogleFonts.robotoCondensed(
+                                              color: Colors.black,
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          // Affiche l'icône de coupe jaune uniquement pour la leçon 1 en attendant la dynamique
+                                          if (i == 1)
+                                            FaIcon(
+                                              FontAwesomeIcons.trophy,
+                                              color: Colors.yellow[700],
+                                              size: 20,
+                                            ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -132,9 +142,13 @@ class _LessonSelectionPageState extends State<LessonSelectionPage> {
                     child: ElevatedButton(
                       onPressed: selectedLesson != null
                           ? () {
-                              // Action pour continuer
-                              Navigator.pushNamed(context,
-                                  '/nextPage'); // Navigue vers la page suivante
+                               // Action pour le bouton "Continuer"
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      QuizPage()), // Navigue vers la page de quiz à modifier en dynamique
+                            );
                             }
                           : null, // Désactive le bouton si aucune leçon n'est sélectionnée
                       style: ElevatedButton.styleFrom(
