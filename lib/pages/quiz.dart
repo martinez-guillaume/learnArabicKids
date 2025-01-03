@@ -4,6 +4,8 @@ import 'package:learnarabickids/widgets/feedback_bottom_sheet.dart';
 
 
 class QuizPage extends StatefulWidget {
+  const QuizPage({super.key});
+
   @override
   _QuizPageState createState() => _QuizPageState();
 }
@@ -23,8 +25,8 @@ class _QuizPageState extends State<QuizPage> {
         correctAnswer: correctAnswer,
         onContinue: () {
           Navigator.pop(context); // Ferme la modal
-          // Ajoutez ici la logique pour passer à la page suivante
-          print('Continuer ou passer à la page suivante');
+          // ici la logique pour passer à la page suivante
+
         },
       ),
     );

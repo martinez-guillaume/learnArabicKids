@@ -74,7 +74,7 @@ class TypewriterText extends StatefulWidget {
 
   // Constructeur
   const TypewriterText({
-    Key? key,
+    super.key,
     required this.text,
     this.speed = const Duration(milliseconds: 45),
     this.textStyle,
@@ -82,7 +82,7 @@ class TypewriterText extends StatefulWidget {
     this.backgroundColor = Colors.white, // Fond blanc par défaut
     this.borderRadius = 12.0, // Bord arrondi par défaut
     this.padding = const EdgeInsets.all(0),
-  }) : super(key: key);
+  });
 
   @override
   _TypewriterTextState createState() => _TypewriterTextState();

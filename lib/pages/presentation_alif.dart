@@ -96,6 +96,8 @@ import 'package:learnarabickids/widgets/typewriter_text.dart';
 import 'package:learnarabickids/widgets/triangle_painter.dart';
 
 class PresentationAlifPage extends StatelessWidget {
+  const PresentationAlifPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -8,7 +8,7 @@ class FeedbackBottomSheet extends StatelessWidget {
   final int correctAnswer;
   final VoidCallback onContinue;
 
-  const FeedbackBottomSheet({
+  const FeedbackBottomSheet({super.key, 
     required this.isCorrect,
     required this.correctAnswer,
     required this.onContinue,

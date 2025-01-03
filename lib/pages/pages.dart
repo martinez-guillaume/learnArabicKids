@@ -7,3 +7,5 @@ export 'terms_of_service.dart';
 export 'learning_selection.dart';
 export 'lesson_selection.dart';
 export 'quiz.dart';
+export 'letter_arabic_lesson.dart';
+export 'letter_writing_lesson.dart';

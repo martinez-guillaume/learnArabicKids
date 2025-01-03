@@ -4,6 +4,8 @@ import 'login.dart';
 import 'presentation_alif.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,13 +73,13 @@ class HomeScreen extends StatelessWidget {
                                   builder: (context) => PresentationAlifPage()),
                             );
                           },
-                          child: Text("C'est parti !"),
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
                             backgroundColor: Color(0xFFE9717D),
                             padding: EdgeInsets.symmetric(vertical: 14),
                             textStyle: TextStyle(fontSize: 20),
                           ),
+                          child: Text("C'est parti !"),
                         ),
                       ),
                     ),
@@ -95,13 +97,13 @@ class HomeScreen extends StatelessWidget {
                                       LoginPage()), // Navigue vers la page de connexion
                             );
                           },
-                          child: Text("J'ai déjà un compte"),
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Color(0xFFE9717D),
                             backgroundColor: Colors.white,
                             padding: EdgeInsets.symmetric(vertical: 14),
                             textStyle: TextStyle(fontSize: 20),
                           ),
+                          child: Text("J'ai déjà un compte"),
                         ),
                       ),
                     ),
