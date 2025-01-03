@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'pages/pages.dart'; 
-import 'pages/login.dart'; 
-import 'pages/home_screen.dart'; 
 
 final routes = <String, WidgetBuilder>{
   '/': (context) => HomeScreen(), // Page d'accueil
@@ -12,4 +10,6 @@ final routes = <String, WidgetBuilder>{
   '/learningselection': (context) => LearningSelectionPage(),
   '/lessonselection': (context) => LessonSelectionPage(),
   '/quiz': (context) => QuizPage(),
+  '/lessonarabicletter': (context) =>LetterArabicLessonPage(),
+  '/lessonwritingletter': (context) =>LetterWritingLessonPage()
 };

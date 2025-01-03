@@ -4,8 +4,12 @@ import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:learnarabickids/widgets/typewriter_text.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'quiz.dart';
+//import 'letter_arabic_lesson.dart';
+//import 'letter_writing_lesson.dart';
 
 class LessonSelectionPage extends StatefulWidget {
+  const LessonSelectionPage({super.key});
+
   @override
   _LessonSelectionPageState createState() => _LessonSelectionPageState();
 }
@@ -75,58 +79,56 @@ class _LessonSelectionPageState extends State<LessonSelectionPage> {
                   child: SingleChildScrollView(
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(4), // Ajout d'arrondis aux angles
-                      child: Container(
-                        child: Center(
-                          child: Column(
-                            children: [
-                              SizedBox(height: 5), // Espace avant le premier bouton
-                              for (int i = 1; i <= 10; i++) ...[
-                                Container(
-                                  width: buttonWidth,
-                                  margin: EdgeInsets.only(
-                                      bottom: 16), // Espacement entre les boutons
-                                  child: ElevatedButton(
-                                    onPressed: () {
-                                      selectedLesson = i; // Met à jour la leçon sélectionnée
-                                      updateContinueButtonState();
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: selectedLesson == i
-                                          ? Color(0xFFFAFFD8)
-                                          : Colors.white,
-                                      padding: EdgeInsets.symmetric(vertical: 16),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(4), // Coins arrondis pour les boutons
-                                      ),
+                      child: Center(
+                        child: Column(
+                          children: [
+                            SizedBox(height: 5), // Espace avant le premier bouton
+                            for (int i = 1; i <= 10; i++) ...[
+                              Container(
+                                width: buttonWidth,
+                                margin: EdgeInsets.only(
+                                    bottom: 16), // Espacement entre les boutons
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    selectedLesson = i; // Met à jour la leçon sélectionnée
+                                    updateContinueButtonState();
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: selectedLesson == i
+                                        ? Color(0xFFFAFFD8)
+                                        : Colors.white,
+                                    padding: EdgeInsets.symmetric(vertical: 16),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(4), // Coins arrondis pour les boutons
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(horizontal: 16.0), 
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          // Texte du bouton
-                                          Text(
-                                            'Leçon $i ( ث , ت , ب , أ )',
-                                            style: GoogleFonts.robotoCondensed(
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                            ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 16.0), 
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        // Texte du bouton
+                                        Text(
+                                          'Leçon $i ( ث , ت , ب , أ )',
+                                          style: GoogleFonts.robotoCondensed(
+                                            color: Colors.black,
+                                            fontSize: 16,
                                           ),
-                                          // Affiche l'icône de coupe jaune uniquement pour la leçon 1 en attendant la dynamique
-                                          if (i == 1)
-                                            FaIcon(
-                                              FontAwesomeIcons.trophy,
-                                              color: Colors.yellow[700],
-                                              size: 20,
-                                            ),
-                                        ],
-                                      ),
+                                        ),
+                                        // Affiche l'icône de coupe jaune uniquement pour la leçon 1 en attendant la dynamique
+                                        if (i == 1)
+                                          FaIcon(
+                                            FontAwesomeIcons.trophy,
+                                            color: Colors.yellow[700],
+                                            size: 20,
+                                          ),
+                                      ],
                                     ),
                                   ),
                                 ),
-                              ],
+                              ),
                             ],
-                          ),
+                          ],
                         ),
                       ),
                     ),
@@ -137,7 +139,7 @@ class _LessonSelectionPageState extends State<LessonSelectionPage> {
 
                 // Bouton Continuer
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: buttonWidth,
                     child: ElevatedButton(
                       onPressed: selectedLesson != null
@@ -148,6 +150,8 @@ class _LessonSelectionPageState extends State<LessonSelectionPage> {
                               MaterialPageRoute(
                                   builder: (context) =>
                                       QuizPage()), // Navigue vers la page de quiz à modifier en dynamique
+                                      //LetterArabicLessonPage()),
+                                      //LetterWritingLessonPage()),
                             );
                             }
                           : null, // Désactive le bouton si aucune leçon n'est sélectionnée

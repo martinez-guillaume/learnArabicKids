@@ -3,8 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'lesson_selection.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:learnarabickids/widgets/typewriter_text.dart';
+import 'letter_arabic_lesson.dart';
+import 'letter_writing_lesson.dart';
 
 class LearningSelectionPage extends StatefulWidget {
+  const LearningSelectionPage({super.key});
+
   @override
   _LearningSelectionPageState createState() => _LearningSelectionPageState();
 }
@@ -85,7 +89,7 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
                   child: Column(
                     children: [
                       // Bouton Lecture
-                      Container(
+                      SizedBox(
                         width: buttonWidth,
                         child: ElevatedButton(
                           onPressed: () {
@@ -117,7 +121,7 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
                       SizedBox(height: 16),
 
                       // Bouton Écriture
-                      Container(
+                      SizedBox(
                         width: buttonWidth,
                         child: ElevatedButton(
                           onPressed: () {
@@ -125,7 +129,13 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
                             isReadingSelected = false;
                             isVocabularySelected = false;
                             isDictationSelected = false;
-                            updateContinueButtonState();
+                            //updateContinueButtonState();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      LetterArabicLessonPage()), // Navigue vers la page de connexion
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: isWritingSelected
@@ -148,7 +158,7 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
                       SizedBox(height: 16),
 
                       // Bouton Vocabulaire
-                      Container(
+                      SizedBox(
                         width: buttonWidth,
                         child: ElevatedButton(
                           onPressed: () {
@@ -156,7 +166,13 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
                             isReadingSelected = false;
                             isWritingSelected = false;
                             isDictationSelected = false;
-                            updateContinueButtonState();
+                            //updateContinueButtonState();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      LetterWritingLessonPage()), // Navigue vers la page de connexion
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: isVocabularySelected
@@ -179,7 +195,7 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
                       SizedBox(height: 16),
 
                       // Bouton Dictée
-                      Container(
+                      SizedBox(
                         width: buttonWidth,
                         child: ElevatedButton(
                           onPressed: () {
@@ -216,7 +232,7 @@ class _LearningSelectionPageState extends State<LearningSelectionPage> {
 
                 // Bouton Continuer
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: buttonWidth,
                     child: ElevatedButton(
                       onPressed: (isWritingSelected ||

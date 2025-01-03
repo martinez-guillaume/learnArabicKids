@@ -5,6 +5,8 @@ import 'terms_of_service.dart';
 import 'privacy_policy.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -41,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 130.0),
                 // Champ Email
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: elementWidth,
                     child: TextField(
                       controller: _emailController,
@@ -64,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 16.0),
                 // Champ Mot de passe
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: elementWidth,
                     child: TextField(
                       controller: _passwordController,
@@ -97,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 50.0),
                 // Bouton Se connecter
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: elementWidth,
                     child: ElevatedButton(
                       onPressed: () {
